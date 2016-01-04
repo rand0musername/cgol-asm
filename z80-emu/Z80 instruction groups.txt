@@ -1,0 +1,100 @@
+Z80 Instructions by type
+
+=== 8-bit and 16-bit Load
+
+LD – Load
+PUSH – Load to stack
+POP – Load from stack
+
+=== 8-bit and 16-bit Arithmetic
+
+ADD – Addition
+ADC – Addition with Carry flag
+SUB – Subtraction
+SBC – Subtraction with Carry flag
+AND – Logical AND
+OR – Logical OR
+XOR – Logical XOR
+CP – Compare
+INC – Increment by 1
+DEC – Decrement by 1
+
+=== Exchange, Block Transfer, and Search
+
+EX – Exchange
+EXX – Exchange extended
+LDI – Load (DE)<-(HL), Decrement BC, Increment DE, HL
+LDIR – LDI Repeated until BC=0
+LDD – Load (DE)<-(HL), Decrement BC, Decrement DE, HL
+LDDR – LDD repeated unitl BC=0
+CPI – Compare A and (HL), Increment HL, Decrement BC
+CPIR – CPI until BC=0 or A=(HL)
+CPD – Compare A and (HL), Decrement HL, Decrement BC
+CPDR – CPD until BC=0 or A=(HL)
+
+=== General-Purpose Arithmetic and CPU Control
+
+DAA – Decimal Adjust
+CPL – Binary complement (1st complement)
+NEG – Negative (2nd complement)
+CCF – Complement Carry Flag
+SCF – Set Carry Flag
+
+=== CPU Control
+
+NOP – No Operation
+HALT – Executes NOPs internally until INT, NMI or RESET
+DI – Disable Interrupts
+EI – Enable Interrupts
+IM 0 – Interrupt Mode 0
+IM 1 – Interrupt Mode 1
+IM 2 – Interrupt Mode 2
+
+=== Rotate and Shift
+
+RLC, RLCA – Rotate Left with Carry flag
+RL, RLA – Rotate Left through Carry flag
+RRC, RRCA – Rotate Right with Carry flag
+RR, RRA – Rotate Right through Carry flag
+SLA – Shift Left Arithmetic
+SRA – Shift Right Arithmetic (preserves bit 7)
+SRL – Shift Right Logical
+RLD – Rotate digit left and right between accumulator and (HL)
+RRD – Rotate digit right and left between accumulator and (HL)
+
+===Bit Set, Reset, and Test
+
+BIT – Bit test
+SET – Set bit
+RES – Reset bit
+
+=== Jump
+
+JP – Jump absolute (direct or indirect to HL, IX, IY)
+JP cc – Jump absolute conditional (cc = NZ, Z, NC, C, PO, PE, P, M)
+JR – Jump Relative
+JR cc – Jump Relative conditional (cc = NZ, Z, NC, C)
+DJNZ – Decrement register B and Jump relative if Not  Zero 
+
+=== Call and Return
+
+CALL – Call absolute
+CALL cc – Call absolute conditional (cc = NZ, Z, NC, C, PO, PE, P, M)
+RET – Return from subroutine
+RET cc – Conditional Return (cc = NZ, Z, NC, C, PO, PE, P, M)
+RETI – Return from Interrupt
+RETN – Return from Non-maskable interrupt (restores DI/EI status)
+RST – Restart (quick call)
+
+=== Input and Output
+
+IN – Load register with input from device (n) or (C)
+INI – Load to memory (HL) from device (C), Increment HL, decrement B
+INIR – INI Repeated until B=0
+IND – Load to memory (HL) from device (C), Decrement HL, decrement B
+INDR – IND Repeated until B=0
+OUT – Load device (n) or (C) with register
+OUTI – Load device (C) from (HL), Increment HL, decrement B
+OTIR – OUTI Repeated until B=0
+OUTD – Load device (C) from (HL), Decrement HL, decrement B
+OTDR – OUTD Repeated until B=0
